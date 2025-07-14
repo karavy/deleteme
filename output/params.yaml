@@ -4,8 +4,8 @@ metadata:
   name: 
 spec:
   apiserverip: 
-  clustername: 
-  lusterdomain: 
+  clustername: a-new-cluster
+  clusterdomain: 
   cpreplicas: 
   datastore: 
   k8sversion: 
