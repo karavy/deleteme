@@ -18,9 +18,9 @@ spec:
   ipamrangeprefix: 
   ipamrangegw: 
   ipampoolname: 
-  nodeinfo: 
+  nodesinfo: 
 
-    - name: 1
+    - nodename: 1
       folder: /EDA - Datacenter Elogic A - Produzione/vm/Kubernetes Environments/CNT.24.0238.04 - VDC KUBERNETES MAGGIOLI SORIS
       resourcePool: /EDA - Datacenter Elogic A - Produzione/host/ClusterEDA01-NSXT/Resources/CNT.24.0238.04 - VDC KUBERNETES MAGGIOLI SORIS
       storagePolicyName: DATA4_ENT-PLUS_K8S
