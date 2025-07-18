@@ -6,7 +6,7 @@ spec:
   apiserverip: 
   clustername: a-new-cluster
   clusterdomain: 
-  cpreplicas: 
+  cpreplicas: 3
   datastore: 
   k8sversion: 
   dcname: 
