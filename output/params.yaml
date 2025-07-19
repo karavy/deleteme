@@ -13,9 +13,6 @@ spec:
   dcurl: 
   dcthumbprint: 
   dccredsecret: 
-  profilelabels:
-    - profilekey: a
-      profilelabel: b
   ipampool:
     - rangestart: 192.168.3.100
       rangeend: 192.168.3.150
