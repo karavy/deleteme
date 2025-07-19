@@ -31,7 +31,11 @@ spec:
       taints: 
         a: b
         k: v
-      labels: b=c,k=v
+      nodelabels: 
+        - labelkey: b
+          labelvalue: c
+        - labelkey: k
+          labelvalue: v
       diskGiB: 1
       memoryMiB: 1
       numCPUs: 1
