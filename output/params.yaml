@@ -14,10 +14,10 @@ spec:
   dcthumbprint: 
   dccredsecret: 
   ipampoolranges: 
-
-  ipamrangeprefix: 
-  ipamrangegw: 
-  ipampoolname: 
+    - 192.168.3.100-192.168.3.150
+  ipamrangeprefix: 26
+  ipamrangegw: 192.168.3.254
+  ipampoolname: newpool 
   nodesinfo: 
 
     - nodename: 1
