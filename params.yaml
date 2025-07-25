@@ -38,6 +38,6 @@ spec:
       nodetaints:
   # -- Labels to add to the node pool when joining the cluster
       nodelabels:
-  - labelkey: k
+        - labelkey: k
           labelvalue: v
 
