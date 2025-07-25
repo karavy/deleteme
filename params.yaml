@@ -1,36 +1,43 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: ClastixParams
 metadata:
-  name: 
+  name: soris-stage
 spec:
-  apiserverip: 
-  clustername: 
-  clusterdomain: 
-  cpreplicas: 
-  datastore: 
-  k8sversion: 
-  dcname: 
-  dcurl: 
-  dcthumbprint: 
-  dccredsecret: 
-  ipampoolranges: 
+  clustername: soris-stage
+  clusterdomain: soris-stage.local
+  apiserverip: 10.19.27.61
+  cpreplicas: 3
+  datastore: etcd-datastore
+  k8sversion: 1.32
+  gatewayip: 10.119.1.254
 
-  ipamrangeprefix: 
-  ipamrangegw: 
-  ipampoolname: 
-  nodeinfo:
-    - name: 1
-      folder: /EDA - Datacenter Elogic A - Produzione/vm/Kubernetes Environments/CNT.24.0238.04 - VDC KUBERNETES MAGGIOLI SORIS
-      resourcePool: /EDA - Datacenter Elogic A - Produzione/host/ClusterEDA01-NSXT/Resources/CNT.24.0238.04 - VDC KUBERNETES MAGGIOLI SORIS
-      storagePolicyName: DATA4_ENT-PLUS_K8S
-      template: /EDA - Datacenter Elogic A - Produzione/vm/Kubernetes Environments/CNT.24.0263.01 - VDC MYMEMO/ubuntu-2404-kube-v1.31.0
-      network: /EDA - Datacenter Elogic A - Produzione/network/SORIS-COLL-K8S-f3ea44d0-ce69-4f9f-8691-d96c621375e4
-      replicas: 1
-      taints:
+  dcname: EDA - Datacenter Elogic A - Produzione
+  dcurl: 10.19.6.1
+  dcthumbprint: 2D:91:19:B3:27:30:02:CE:C0:38:CF:77:EF:1B:E6:A8:4B:9C:BB:D6:C5:59:DD:6B:6C:DF:F2:65:83:24:C1:96
+  dccredsecret: vsphere-cluster-identity
+  dcfolder: 
+  dcnodepool: 
+  dcstorage: 
+  dcvmtemplate: 
+  dcnetwork: 
+
+  ipampool: 
+
+    - rangestart: 192.168.3.10
+      rangeend: 192.168.3.100
+      prefix: 26
+      gateway: 192.168.3.254
+      ipamname: 26
+
+  nodesinfo:
+    - nodename: 25
+      replicas: 2
+      cpu: 2
+      mbram: 
+      gbdisk: 
+      nodetaints:
   # -- Labels to add to the node pool when joining the cluster
-      labels:
-  k: vk2: v1diskGiB: 1
-      memoryMiB: 1
-      numCPUs: 1
-
+      nodelabels:
+  - labelkey: k
+          labelvalue: v
 
