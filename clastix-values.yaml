@@ -134,7 +134,7 @@ spec:
 
     nodePools:
       # Node Pool configuration
-      - name: nide1
+      - name: 1
         additionalCloudInitFiles: |
           #cloud-config
           timezone: Europe/Rome
@@ -161,6 +161,8 @@ spec:
         # -- Labels to add to the node pool when joining the cluster
         labels:
           key1: value1
+  
+          key2: value2
   
         # -- Disk size of VM in GiB
         diskGiB: 1

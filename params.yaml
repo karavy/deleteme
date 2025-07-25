@@ -19,7 +19,7 @@ spec:
   ipamrangegw: 
   ipampoolname: 
   nodeinfo:
-    - name: nide1
+    - name: 1
       folder: /EDA - Datacenter Elogic A - Produzione/vm/Kubernetes Environments/CNT.24.0238.04 - VDC KUBERNETES MAGGIOLI SORIS
       resourcePool: /EDA - Datacenter Elogic A - Produzione/host/ClusterEDA01-NSXT/Resources/CNT.24.0238.04 - VDC KUBERNETES MAGGIOLI SORIS
       storagePolicyName: DATA4_ENT-PLUS_K8S
@@ -29,7 +29,7 @@ spec:
       taints:
   # -- Labels to add to the node pool when joining the cluster
       labels:
-  key1: value1diskGiB: 1
+  key1: value1key2: value2diskGiB: 1
       memoryMiB: 1
       numCPUs: 1
 
