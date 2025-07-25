@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: ClastixParams
+metadata:
+  name: 1
+spec:
+  apiserverip: 1.1.1.1
+  clustername: 1
+  clusterdomain: 1
+  cpreplicas: 1
+  datastore: 1
+  k8sversion: 1.32
+  dcname: 
+  dcurl: 
+  dcthumbprint: 
+  dccredsecret: 
+  ipampoolranges: 
+
+  ipamrangeprefix: 
+  ipamrangegw: 
+  ipampoolname: 
+  nodeinfo:
+

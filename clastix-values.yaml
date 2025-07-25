@@ -1,0 +1,159 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: 1
+  namespace: 1
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: charts/capi-kamaji-vsphere
+      version: 'nil'  # GitRepository wants the version in the chart name
+      sourceRef:
+        kind: GitRepository
+        name: cluster-api-kamaji-vsphere
+        namespace: flux-system
+      interval: 12h
+  dependsOn:
+    - name: 1
+  values:
+    vSphere:
+      # -- Datacenter to use
+      dataCenter:  #"EDA - Datacenter Elogic A - Produzione"
+      # -- VSphere server dns name or address
+      server:  #"10.19.6.1"
+      # -- VSphere https TLS thumbprint
+      tlsThumbprint:  #"2D:91:19:B3:27:30:02:CE:C0:38:CF:77:EF:1B:E6:A8:4B:9C:BB:D6:C5:59:DD:6B:6C:DF:F2:65:83:24:C1:96"
+      # -- Create a secret with the VSphere credentials
+      identityRef:
+        # -- Specifies whether use VSphereClusterIdentity or Secret
+        type: VSphereClusterIdentity
+        # -- Specifies the name of the VSphereClusterIdentity or Secret
+        name:  #vsphere-cluster-identity
+      # -- VSphere username
+      # username: "username"
+      # -- VSphere password
+      # password: "password"
+
+    ipamProvider:
+      # -- Enable the IPAMProvider usage
+      enabled: true
+      # -- IPAMProvider API group
+      apiGroup: ipam.cluster.x-k8s.io
+      # -- IPAMProvider kind: InClusterIPPool or GlobalInClusterIPPool
+      kind: InClusterIPPool
+      # -- IPAMProvider name
+      name:  #ipam-ip-pool
+      # -- IPAMProvider ranges
+      ranges:
+
+        #- "10.10.119.51-10.10.119.150"
+      # -- IPAMProvider prefix
+      prefix:  #"24"
+      # -- IPAMProvider gateway
+      gateway:  #"10.10.119.1"
+
+    cluster:
+      # -- Cluster name. If unset, the release name will be used
+      name: ""
+      clusterNetwork:
+        serviceDomain: 1 #soris-stage-citymat.local
+      controlPlane:
+        # -- Labels to add to the control plane
+        labels: #TODO
+          profile: basic
+          #fortigate: fabric
+          #loadbalancer: metallb
+          #nfs: storage
+          #cd: argocd
+          #monitoring: persistent
+          #postgres: cloudnative-pg
+          #mongodb: percona
+          #mongodb-cluster: soris
+          #elasticsearch: operator
+          #elasticsearch-clusters: soris
+          #kafka: strimzi-operator
+          #kafka-deployments: soris
+          #nginx-management: ingress
+          #nginx-prod: ingress
+          #soris-citymat: postgres-cluster
+          #letsencrypt: external-dns
+          #dinova-letsencypt: cert-manager
+          #scdf-test: scdf
+          #scdf-dev: scdf
+          #backup: kasten
+        # -- Number of control plane replicas
+        replicas: 1 #3
+        # -- extraArgs for the control plane components
+        apiServer:
+          extraArgs:
+            - --cloud-provider=external
+        controllerManager:
+          extraArgs:
+            - --cloud-provider=external
+        # -- KamajiControlPlane dataStoreName
+        dataStoreName: 1 #soris-stage-datastore
+        addons:
+          # -- KamajiControlPlane coreDNS configuration
+          coreDNS: { }
+          # -- KamajiControlPlane kube-proxy configuration
+          kubeProxy: { }
+          # -- KamajiControlPlane konnectivity configuration
+          konnectivity: { }
+        kubelet:
+          # -- kubelet cgroupfs configuration
+          cgroupfs: systemd
+          # -- kubelet preferredAddressTypes order
+          preferredAddressTypes:
+            - InternalIP
+            - ExternalIP
+            - Hostname
+        network:
+          # -- Ingress configuration (optional)
+          #ingress: {}
+          # -- Type of service used to expose the Kubernetes API server
+          serviceType: LoadBalancer
+          # -- Address used to expose the Kubernetes API server. If not set, the service will be exposed on the first available address.
+          serviceAddress: 1.1.1.1 #"10.19.27.61"
+          # -- List of additional Subject Alternative Names to use for the API Server serving certificate
+          serviceAnnotations:
+            metallb.io/loadBalancerIPs: 1.1.1.1 #"10.19.27.61"
+          certSANs: [ "soris-stage.k8s.dinova.services", "10.10.119.254" ] #TODO
+        # -- Kubernetes version
+        version: 1.32 #v1.31.0
+        deployment:
+          nodeSelector:
+            node-role.kubernetes.io/tcp: ''
+          tolerations:
+            - effect: NoSchedule
+              key: node-role.kubernetes.io/tcp
+              operator: Exists
+      metrics:
+        # -- Enable metrics collection. ServiceMonitor custom resource definition must be installed on the Management cluster.
+        enabled: true
+        # -- ServiceAccount for scraping metrics
+        serviceAccount:
+          # -- ServiceAccount name used for scraping metrics
+          name: kube-prometheus-stack-prometheus
+          # -- ServiceAccount namespace
+          namespace: monitoring-system
+
+    nodePools:
+
+
+    vSphereCloudControllerManager:
+      # -- Installs vsphere-cloud-controller-manager on the management cluster
+      enabled: true
+      secret:
+        # -- Specifies whether Secret should be created from config values
+        create: false
+        # -- The name of an existing Secret for vSphere.
+        name: cpi-config-secret #TODO
+      image:
+        tag: 1.32 #v1.31.0
+      nodeSelector:
+        node-role.kubernetes.io/tcp: ''
+      tolerations:
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/tcp
+          operator: Exists
