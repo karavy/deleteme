@@ -120,7 +120,7 @@ spec:
             metallb.io/loadBalancerIPs: 1.1.1.1 #"10.19.27.61"
           certSANs: [ "soris-stage.k8s.dinova.services", "10.10.119.254" ] #TODO
         # -- Kubernetes version
-        version: 1.32 #v1.31.0
+        version: 1.31 #v1.31.0
         deployment:
           nodeSelector:
             node-role.kubernetes.io/tcp: ''
@@ -150,7 +150,7 @@ spec:
         # -- The name of an existing Secret for vSphere.
         name: cpi-config-secret #TODO
       image:
-        tag: 1.32 #v1.31.0
+        tag: 1.31 #v1.31.0
       nodeSelector:
         node-role.kubernetes.io/tcp: ''
       tolerations:

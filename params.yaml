@@ -8,7 +8,7 @@ spec:
   clusterdomain: 1
   cpreplicas: 1
   datastore: 1
-  k8sversion: 1.32
+  k8sversion: 1.31
   dcname: 
   dcurl: 
   dcthumbprint: 
