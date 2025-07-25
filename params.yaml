@@ -29,7 +29,7 @@ spec:
       taints:
   # -- Labels to add to the node pool when joining the cluster
       labels:
-  key1: value1key2: value2diskGiB: 1
+  k: vk2: v1diskGiB: 1
       memoryMiB: 1
       numCPUs: 1
 

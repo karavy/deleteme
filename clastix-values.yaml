@@ -160,10 +160,8 @@ spec:
         taints:
         # -- Labels to add to the node pool when joining the cluster
         labels:
-          key1: value1
-  
-          key2: value2
-  
+          k: v
+          k2: v1
         # -- Disk size of VM in GiB
         diskGiB: 1
         # -- Memory to allocate to worker VMs
