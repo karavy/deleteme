@@ -1,22 +1,52 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: ClastixParams
 metadata:
-  name: 1
+  name: soris-stage
 spec:
-  apiserverip: 1.1.1.1
-  clustername: 1
-  clusterdomain: 1
-  cpreplicas: 1
-  datastore: 1
-  k8sversion: 1.31
-  dcname: 
-  dcurl: 
-  dcthumbprint: 
-  dccredsecret: 
+  apiserverip: 10.19.27.61
+  clustername: soris-stage
+  clusterdomain: soris-stage.local
+  cpreplicas: 3
+  datastore: etcd-datastore
+  k8sversion: 1.32
+  dcname: EDA - Datacenter Elogic A - Produzione
+  dcurl: 10.19.6.1
+  dcthumbprint: 2D:91:19:B3:27:30:02:CE:C0:38:CF:77:EF:1B:E6:A8:4B:9C:BB:D6:C5:59:DD:6B:6C:DF:F2:65:83:24:C1:96
+  dccredsecret: vsphere-cluster-identity
   ipampoolranges: 
 
-  ipamrangeprefix: 
-  ipamrangegw: 
-  ipampoolname: 
+    - 192.168.3.10-192.168.3.100
+
+  ipamrangeprefix: 26
+  ipamrangegw: 192.168.3.254
+  ipampoolname: ipam-pool-provider
   nodeinfo:
+    - name: node-type-1
+      folder: /EDA - Datacenter Elogic A - Produzione/vm/Kubernetes Environments/CNT.24.0238.04 - VDC KUBERNETES MAGGIOLI SORIS
+      resourcePool: /EDA - Datacenter Elogic A - Produzione/host/ClusterEDA01-NSXT/Resources/CNT.24.0238.04 - VDC KUBERNETES MAGGIOLI SORIS
+      storagePolicyName: DATA4_ENT-PLUS_K8S
+      template: /EDA - Datacenter Elogic A - Produzione/vm/Kubernetes Environments/CNT.24.0263.01 - VDC MYMEMO/ubuntu-2404-kube-v1.31.0
+      network: /EDA - Datacenter Elogic A - Produzione/network/SORIS-COLL-K8S-f3ea44d0-ce69-4f9f-8691-d96c621375e4
+      replicas: 3
+      taints:
+  # -- Labels to add to the node pool when joining the cluster
+      labels:
+  node1-label1-key1: node1-label1-value1diskGiB: 100
+      memoryMiB: 4096
+      numCPUs: 4
+
+    - name: node-type-2
+      folder: /EDA - Datacenter Elogic A - Produzione/vm/Kubernetes Environments/CNT.24.0238.04 - VDC KUBERNETES MAGGIOLI SORIS
+      resourcePool: /EDA - Datacenter Elogic A - Produzione/host/ClusterEDA01-NSXT/Resources/CNT.24.0238.04 - VDC KUBERNETES MAGGIOLI SORIS
+      storagePolicyName: DATA4_ENT-PLUS_K8S
+      template: /EDA - Datacenter Elogic A - Produzione/vm/Kubernetes Environments/CNT.24.0263.01 - VDC MYMEMO/ubuntu-2404-kube-v1.31.0
+      network: /EDA - Datacenter Elogic A - Produzione/network/SORIS-COLL-K8S-f3ea44d0-ce69-4f9f-8691-d96c621375e4
+      replicas: 10
+      taints:
+  node2-taint1-key1: node2-taint2-value1# -- Labels to add to the node pool when joining the cluster
+      labels:
+  diskGiB: 200
+      memoryMiB: 8192
+      numCPUs: 1
+
 
