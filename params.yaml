@@ -33,8 +33,8 @@ spec:
     - nodename: 25
       replicas: 2
       cpu: 2
-      mbram: 
-      gbdisk: 
+      mbram: 4096
+      gbdisk: 150
       nodetaints:
   # -- Labels to add to the node pool when joining the cluster
       nodelabels:
