@@ -22,6 +22,7 @@ spec:
   dcnetwork: 
 
   profilelabels:
+    - pippo: pluto
 
   ipampool: 
 
