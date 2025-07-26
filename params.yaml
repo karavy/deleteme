@@ -22,7 +22,7 @@ spec:
   dcnetwork: 
 
   profilelabels:
-    - pippo
+    - prod-profile-01
 
   ipampool: 
 
