@@ -22,7 +22,7 @@ spec:
   dcnetwork: 
 
   profilelabels:
-    - prod-profile-01
+    - fortigate:fabric
 
   ipampool: 
 
