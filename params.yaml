@@ -3,6 +3,7 @@ kind: ClastixParams
 metadata:
   name: soris-stage
 spec:
+  contract: "CNT.24.001.12"
   clustername: soris-stage
   clusterdomain: soris-stage.local
   apiserverip: 10.19.27.61
