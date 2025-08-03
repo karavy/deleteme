@@ -3,8 +3,9 @@ kind: ClastixParams
 metadata:
   name: soris-stage
   annotations:
-    git-version: 2.0.1
+    git-version: 2.0.2
 spec:
+  repotag: 2.0.2
   contract: "CNT.19.0035.01"
   clustername: soris-stage
   clusterdomain: soris-stage.local
