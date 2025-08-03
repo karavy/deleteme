@@ -2,17 +2,15 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: ClastixParams
 metadata:
   name: soris-stage
-  annotations:
-    git-version: 2.0.2
 spec:
-  repotag: 2.0.2
+  repotag: 2.0.3
   contract: "CNT.19.0035.01"
   clustername: soris-stage
   clusterdomain: soris-stage.local
   apiserverip: 10.19.27.61
   cpreplicas: 3
   datastore: etcd-datastore
-  k8sversion: 1.32
+  k8sversion: "1.32"
   gatewayip: 10.119.1.254
 
   dcname: EDA - Datacenter Elogic A - Produzione
