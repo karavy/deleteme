@@ -14,10 +14,10 @@ spec:
   gatewayip: 10.119.1.254
 
   dcname: EDA - Datacenter Elogic A - Produzione
-  dcurl: 
-  dcthumbprint: 
+  dcurl: "viceda01.elogic.it"
+  dcthumbprint: "47:87:DC:58:AC:18:EA:14:B7:F1:60:A0:27:76:C9:B8:4E:58:7E:EC:AB:A2:AF:19:AE:D8:C9:53:71:2B:4D:BF"
   dccredsecret: vsphere-cluster-identity
-  dcfolder: 
+  dcfolder: "/EDA - Datacenter Elogic A - Produzione/vm/vcloud.elogic.it/Maggioli (9df7210e-a136-49f4-b199-149f420e7b03)/CNT.19.0035.01 - VDC IAAS DESTINAZIONE TU (710d28cd-ad1d-4cc0-87a7-31a6b5ef64c9)"
   dcnodepool: 
   dcstorage: 
   dcvmtemplate: 
