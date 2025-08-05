@@ -18,10 +18,10 @@ spec:
   dcthumbprint: 2D:91:19:B3:27:30:02:CE:C0:38:CF:77:EF:1B:E6:A8:4B:9C:BB:D6:C5:59:DD:6B:6C:DF:F2:65:83:24:C1:96
   dccredsecret: vsphere-cluster-identity
   dcfolder: "folder"
-  dcnodepool: 
-  dcstorage: 
-  dcvmtemplate: 
-  dcnetwork: 
+  dcnodepool: "nodepool"
+  dcstorage: "storage"
+  dcvmtemplate: "template"
+  dcnetwork: "network"
 
   profilelabels:
     - fortigate:fabric
