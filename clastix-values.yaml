@@ -21,9 +21,9 @@ spec:
       # -- Datacenter to use
       dataCenter: EDA - Datacenter Elogic A - Produzione #"EDA - Datacenter Elogic A - Produzione"
       # -- VSphere server dns name or address
-      server: 10.19.6.1 #"10.19.6.1"
+      server: viceda01.elogic.it #"10.19.6.1"
       # -- VSphere https TLS thumbprint
-      tlsThumbprint: 2D:91:19:B3:27:30:02:CE:C0:38:CF:77:EF:1B:E6:A8:4B:9C:BB:D6:C5:59:DD:6B:6C:DF:F2:65:83:24:C1:96 #"2D:91:19:B3:27:30:02:CE:C0:38:CF:77:EF:1B:E6:A8:4B:9C:BB:D6:C5:59:DD:6B:6C:DF:F2:65:83:24:C1:96"
+      tlsThumbprint: 47:87:DC:58:AC:18:EA:14:B7:F1:60:A0:27:76:C9:B8:4E:58:7E:EC:AB:A2:AF:19:AE:D8:C9:53:71:2B:4D:BF #"2D:91:19:B3:27:30:02:CE:C0:38:CF:77:EF:1B:E6:A8:4B:9C:BB:D6:C5:59:DD:6B:6C:DF:F2:65:83:24:C1:96"
       # -- Create a secret with the VSphere credentials
       identityRef:
         # -- Specifies whether use VSphereClusterIdentity or Secret
@@ -31,25 +31,7 @@ spec:
         # -- Specifies the name of the VSphereClusterIdentity or Secret
         name: vsphere-cluster-identity #vsphere-cluster-identity
 
-    ipamProvider:
-      # -- Enable the IPAMProvider usage
-      enabled: true
-      # -- IPAMProvider API group
-      apiGroup: ipam.cluster.x-k8s.io
-      # -- IPAMProvider kind: InClusterIPPool or GlobalInClusterIPPool
-      kind: InClusterIPPool
-      # -- IPAMProvider name
-      name:  #ipam-ip-pool
-      # -- IPAMProvider ranges
-      ranges:
-        - 192.168.3.10-192.168.3.100
-#- "10.10.119.51-10.10.119.150"
-      # -- IPAMProvider prefix
-      prefix: 26 #"24"
-      # -- IPAMProvider gateway
-      gateway: 192.168.3.254 #"10.10.119.1"
-
-    cluster:
+    ipamProvider:cluster:
       # -- Cluster name. If unset, the release name will be used
       name: ""
       clusterNetwork:
@@ -136,7 +118,7 @@ spec:
 
     nodePools:
       # Node Pool configuration
-      - name: 25
+      - name: pluto
         additionalCloudInitFiles: |
           #cloud-config
           timezone: Europe/Rome
@@ -162,11 +144,10 @@ spec:
         taints:
         # -- Labels to add to the node pool when joining the cluster
         labels:
-          k: v
         # -- Disk size of VM in GiB
-        diskGiB: 2
+        diskGiB: 150
         # -- Memory to allocate to worker VMs
-        memoryMiB: 2
+        memoryMiB: 4096
         # -- Number of vCPUs to allocate to worker instances
         numCPUs: 2
         # -- Use dhcp for ipv4 configuration
