@@ -14,13 +14,13 @@ spec:
   gatewayip: 10.119.1.254
 
   dcname: EDA - Datacenter Elogic A - Produzione
-  dcurl: 10.19.6.1
-  dcthumbprint: 2D:91:19:B3:27:30:02:CE:C0:38:CF:77:EF:1B:E6:A8:4B:9C:BB:D6:C5:59:DD:6B:6C:DF:F2:65:83:24:C1:96
+  dcurl: 
+  dcthumbprint: 
   dccredsecret: vsphere-cluster-identity
-  dcfolder: "folder"
-  dcnodepool: "nodepool"
-  dcstorage: "storage"
-  dcvmtemplate: "template"
+  dcfolder: 
+  dcnodepool: 
+  dcstorage: 
+  dcvmtemplate: 
   dcnetwork: "network"
 
   profilelabels:
