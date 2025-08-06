@@ -10,7 +10,7 @@ spec:
   apiserverip: 10.19.27.61
   cpreplicas: 3
   datastore: etcd-datastore
-  k8sversion: 1.32
+  k8sversion: "1.32"
   gatewayip: 10.119.1.254
 
   dcname: EDA - Datacenter Elogic A - Produzione
