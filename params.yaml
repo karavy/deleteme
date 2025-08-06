@@ -3,7 +3,7 @@ kind: ClastixParams
 metadata:
   name: soris-stage
 spec:
-  repotag: 4.0.0
+  repotag: 5.0.0
   contract: CNT.19.0035.01
   clustername: soris-stage
   clusterdomain: soris-stage.local
@@ -32,8 +32,7 @@ spec:
       mbram: 4096
       gbdisk: 150
       nodetaints:
-  # -- Labels to add to the node pool when joining the cluster
-      nodelabels:
-  sveltosapps: []
+  nodelabels:
+  sveltosapps:
   
 
