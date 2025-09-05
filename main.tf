@@ -13,7 +13,7 @@ terraform {
 }
 
 terraform {
-  backend "remote" {
+  cloud {
     hostname = "terrakube-api.minikube.net"
     organization = "simple"
 
