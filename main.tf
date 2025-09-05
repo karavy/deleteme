@@ -8,6 +8,11 @@ provider "vcd" {
 }
 
 terraform {
+  # Questo blocco dice a Terrakube di inizializzare lo stato remoto S3
+  backend "s3" {}
+}
+
+terraform {
   backend "remote" {
     hostname = "terrakube-api.minikube.net"
     organization = "simple"
